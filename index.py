@@ -1,9 +1,6 @@
-from flask import Flask
-
+from flask import Flask, request
 
 app = Flask(__name__)
-
-
 @app.route('/')
 def home():
     return 'Home Page Route'
@@ -22,3 +19,8 @@ def portfolio():
 @app.route('/contact')
 def contact():
     return 'Contact Page Route'
+
+@app.route('/getParam',methods=['GET'])
+def getParam():
+    str = request.args.get('str')
+    return(str)
